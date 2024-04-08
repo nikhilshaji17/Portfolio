@@ -2,13 +2,13 @@ import './index.scss'
 import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
 import { useState, useEffect } from 'react'
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
+// import { useRef } from 'react'
+// import emailjs from '@emailjs/browser'
 
 const Contact = () => {
 
     const [letterClass, setLetterClass] = useState('text-animate')
-    const refForm = useRef
+    // const refForm = useRef
 
 
 
@@ -18,14 +18,14 @@ const Contact = () => {
         }, 3000)
     }, [])
 
-    const sendEmail = (e) =>{
-        e.preventDefault()
-        emailjs
-        .sendForm(
-            'gmail',
-            'service_7v3z0ot',
-        )
-    }
+    // const sendEmail = (e) =>{
+    //     e.preventDefault()
+    //     emailjs
+    //     .sendForm(
+    //         'gmail',
+    //         'service_7v3z0ot',
+    //     )
+    // }
 
     return(
         <>
