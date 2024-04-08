@@ -1,0 +1,92 @@
+Need to change color of everything to green - Done
+Come back to the logo once done with other pages
+Fix Contact page form
+
+
+General Notes:
+1. Vue has options for routing and state management inbuilt, react doesn't per se
+2. animate.css for animating objects and fonts
+3. fontawesome libraries for different logos we use
+4. gsap library for more advanced animations
+5. loaders.css for the loader animation between pages
+6. for the map we create, we use react-leaflet
+7. we use react-loaders to integrate react and loaders.css 
+8. we use react-router-dom for routing
+9. sass allows us to write code more conviniently, allows us to use "for" and variables
+10. prettierrc worries about the formatting and making things look better
+
+I changed the font options in scss. He uses a bunch of fonts 
+I couldn't exactly download, so I tried improvising
+
+The components are created in their own folder, each component has an index file and a scss file corresponding to it
+
+
+Components:
+<Route> is for rerouting to different pages
+<Link> is for the same, but we can put an image on the link.
+For example, we can put a logo of our site somewhere which when clicked, takes us home
+<Outlet/>: This is a component rendered using React Router. The Outlet component is typically used to render the content of a matched route. It acts as a placeholder for the content of the current route. The actual content that gets displayed in place of <Outlet/> depends on the routing configuration.
+
+
+
+
+The following lines were added in index.js in the Layout folder. This is why they were added:
+1. <div className='page'>: This is a JSX element representing a <div> element with the CSS class 'page'. In React, you can use the className attribute to specify the CSS class for an element.
+2. <span className='tags top-tags'>&lt;body&gt;</span>: This is a <span> element with the CSS classes 'tags' and 'top-tags'. Inside the <span>, you have the HTML entity &lt;body&gt; which is displayed as <body> on the web page. The use of &lt; and &gt; is to display angle brackets < and > as plain text within an HTML element. This is often used to display HTML tags as text.
+3. <Outlet/>: This is a component rendered using React Router. The Outlet component is typically used to render the content of a matched route. It acts as a placeholder for the content of the current route. The actual content that gets displayed in place of <Outlet/> depends on the routing configuration.
+4. <span className='tags bottom-tags'>...: Another <span> element with the CSS classes 'tags' and 'bottom-tags'. Inside this <span>, you have the following content:
+5. &lt;/body&gt;: Again, an HTML entity representing </body> displayed as plain text.
+6. <br/>: This is an HTML line break element, which creates a line break in the rendered HTML content.
+7. <span className='bottom-tag-html'>&lt;/html&gt</span>: Another <span> element with the CSS class 'bottom-tag-html', containing the HTML entity &lt;/html&gt, which represents </html> as plain text.
+
+
+So how we built the home page was essentially, we created a layout page, then made the home page as the default thing to be loaded up.
+The routes are configured, and if ever you need a syntax to build another home page, follow that
+
+
+animation: fadeIn 1s 1.8s backwards
+In this, the 1s means how long the animation will take to complete
+and the 1.8s means after how long the animation will even start animating in the first place.
+Example: if we change 1s to 10s, then the animation will take 10 seconds to finish completely
+if we change 1.8s to 10s, the animation will only start 10 seconds after we load our page
+
+the 1s is animation time, and the 1.8s is called the delay
+
+
+Component Animated Letters:
+This component is responsible for animating every letter. 
+We pass in an array of letters to this function, and it performs it's "magic"
+It's parameters include:
+1. letterClass - the class we want to apply to our characters.
+2. strArray - the array of chars we pass in
+3. idx - sets the delay in animation???
+After the initial animation of the letters is done, we want to animate them on hover.
+
+In the index.js page in home folder, in line 19 and 20, the reason we use different class names for H, i, I...
+is because we don't want the letters to appear at the same time, so we add the second part to add a slight delay in animation.
+
+In the scss file for animated letters, we use a for loop. This allows us to go through all the letter classes in one go
+We make it apply special to each letter by using a formula for the animation delay, the / by 10 part.
+
+
+In order to manipulate the background logo and to apply gsap? animations, we use "useRef" in index.js of the Home/Logo component
+
+
+
+In order to do the hover effect, where the color of the letters change when you hover over them, we need to use     const [letterClass, setLetterClass] = useState('text-animate')
+and     useEffect(() => {
+        setTimeout(() => {
+            setLetterClass('text-animate-hover')
+        }, 4000)
+    }, [])
+
+
+To create the cube spinning animation, we go to the css file and write .cubespinner{
+    animation-name: spincube;
+}
+this chooses the class cubespinner and tells it "okay, we're gonna give it an animation called spincube
+we then define spincube using @keyframes spincube{}
+
+
+Loading page:
+We use the Loader component to add a loading screen in between pages. We need to import the loader in App.scss so we can use it everywhere, and then style it using the .loader-active class
