@@ -1,5 +1,5 @@
 import './index.scss'
-import GreenLogo from "../../../assets/images/NGreen.svg"
+import GreenLogo from "../../../assets/images/RocketIcon.svg"
 import {useEffect, useRef} from 'react'
 import gsap from 'gsap-trial'
 import DrawSVGPlugin from 'gsap-trial/DrawSVGPlugin'
