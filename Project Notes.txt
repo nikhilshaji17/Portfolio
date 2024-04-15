@@ -1,7 +1,10 @@
-Need to change color of everything to green - Done
-Come back to the logo once done with other pages
-Fix Contact page form
+Upload the link to github
+Remove gsap trial
 
+Solutions for gsap issue:
+1. Remove gsap from everywhere, it is only used in the logo page. So go to the logo component, and comment out all the gsap effects. And remove
+bgref and the other ref from img and wherever
+2. Find an alternate solution
 
 General Notes:
 1. Vue has options for routing and state management inbuilt, react doesn't per se
